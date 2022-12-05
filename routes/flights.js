@@ -4,8 +4,8 @@ const flightCtrl = require('../controllers/flights')
 const ticketCtrl = require('../controllers/tickets')
 
 /* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
+// router.get('/', function (req, res, next) {
+//   res.send('respond with a resource') ;
 // });
 
 router.get('/', flightCtrl.index)
