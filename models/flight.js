@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// optional shortcut to the mongoose.Schema class
+
 const Schema = mongoose.Schema;
 
 
@@ -31,15 +31,19 @@ const flightSchema = new Schema({
     },
     departs: {
         type: Date,
-        default: function() {
-            
-            
+        default: function () {
+
+            const now = new Date();
+            const oneYr = new Date();
+            oneYr.setYear(now.getYear() + 1);
+            $("#yearFromNow").append(oneYr.toString());
         },
         min: 2022
     },
     destinations: [destinationSchema]
 
-  });
+
+});
 
 
 
@@ -47,4 +51,4 @@ const flightSchema = new Schema({
 
 
 
-  module.exports = mongoose.model('Flight', flightSchema) 
+module.exports = mongoose.model('Flight', flightSchema) 
